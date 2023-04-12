@@ -1,0 +1,63 @@
+package hackerRankEjercicios;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class hackerrank_4_NumPrimos {
+
+//	Funcion para descubrir si es primo el numero
+	static boolean divisor(int num){
+//		Un numero es primo cuando solo s epuede dividir entre el 1 y él mismo
+//	    La validacion d e1 es para evitar procesos de cargar el ciclo innecesariamente
+		if(num == 1) {
+	    	return false;
+	    }
+//		Con esta verificacion obtenemos si se puede dividir por un numero que no sea el mismo o el 1
+		for(int c = 2; c<num ; c++) {
+	      if(num % c == 0){
+//				Regresar false es por que no es primo, se puede dividir con otro numero
+	        return false;
+	      }
+	    }
+//		Regresar true es por que no tiene un divisor que lo deje en 0, por tanto, es primo
+	   return true;
+	}
+	
+
+	static void checkPrime(int [] nums){
+//		El ciclo imprime el numero solo si es primo
+		for(int p = 0; p < nums.length; p++){
+			if(nums[p] != 0) {// esta validacion evita errores en el array
+				if(divisor(nums[p])){
+//					si entra es por que devolvio true el divisor que verifica si es primo
+					System.out.print(nums[p] + " ");
+				}
+			}
+		}
+		System.out.println();
+	}
+
+	  public static void main(String[] args) throws NumberFormatException, IOException {
+			BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+//			Leer los datos ingresados por maquina automaticamente
+			int n1=Integer.parseInt(br.readLine().trim());
+			int n2=Integer.parseInt(br.readLine().trim());
+			int n3=Integer.parseInt(br.readLine().trim());
+			int n4=Integer.parseInt(br.readLine().trim());
+			int n5=Integer.parseInt(br.readLine().trim());
+			
+//			Arreglo para guardar los valores
+			int [] nums = new int [5];
+			nums[0] = n1;
+			checkPrime(nums);
+			nums[1] = n2;
+			checkPrime(nums);
+			nums[2] = n3;
+			checkPrime(nums);
+			nums[3] = n4;
+			nums[4] = n5;
+			checkPrime(nums);
+		
+	  }// Cierre Main
+}// Cierre Class

@@ -1,0 +1,70 @@
+package hackerRankEjercicios;
+
+import java.io.*;
+import java.text.*;
+import java.util.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.toList;
+
+	class Result {
+
+	    /*
+	     * Complete the 'plusMinus' function below.
+	     *
+	     * The function accepts INTEGER_ARRAY arr as parameter.
+	     */
+
+	    public static void plusMinus(List<Integer> arr) {
+	    // Write your code here
+	    	// Para resolver este problema primero hay que declarar en 0 los tres casos
+	    	double positivos = 0;
+	    	double negativos = 0;
+	    	double ceros = 0;
+	    	
+	    	// Y en el for guardaremos cuando se encuentre cada valor y aumentaremos 1 segun el caso
+	    	for (int i = 0; i < arr.size(); i++) {
+				if(arr.get(i) > 0) {
+					positivos ++;	//	aumentamos positivos
+				}
+				else if(arr.get(i) < 0) {
+					negativos ++;	//	aumentamos negativos
+				}
+				else if(arr.get(i) == 0) {
+					ceros ++;	//	aumentamos ceros
+				}
+		    	//De esta manera tendremos el numero exacto de numeros para cada caso
+			}
+	    	// Decimal format me da un objeto al cual puedo acceder para limitar el numero de
+	    	// decimales que tiene un numero
+	    	DecimalFormat formato1 = new DecimalFormat("#.00000");
+	    	
+	    	// Por ultimo caso lo unico que hacemos es crear un String para cada caso en
+	    	// donde inicia siempre en 0 y el numero de cada caso que ya inicia en .
+	    	String positivosFinal = "0" + formato1.format(positivos / arr.size());
+	    	String negativosFinal = "0" + formato1.format(negativos / arr.size());
+	    	String cerosFinal = "0" + formato1.format(ceros / arr.size());
+	    	
+	    	// Y al final solo imprimimos su salida
+	    	System.out.println(positivosFinal);
+	    	System.out.println(negativosFinal);
+	    	System.out.println(cerosFinal);
+	    	
+	    }// Cierre Main
+
+	}// Cierre Class
+
+	public class hackerrank_3_Plus_Minus {
+	    public static void main(String[] args) throws IOException {
+	        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+	        int n = Integer.parseInt(bufferedReader.readLine().trim());
+
+	        List<Integer> arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+	            .map(Integer::parseInt)
+	            .collect(toList());
+
+	        Result.plusMinus(arr);
+
+	        bufferedReader.close();
+	    }// Cierre Main
+	}// Cierre Class 

@@ -1,0 +1,36 @@
+package hackerRankEjercicios;
+import java.util.Scanner;
+
+	public class Ejercicio2_Loops_ll {
+
+	    public static void main(String[] args) {
+	        
+	    	System.out.println("Ingresar numeros a, b y n");
+	    	Scanner numerosEntrada = new Scanner(System.in);
+	    	int querys = numerosEntrada.nextInt();
+	    	int num = 0;
+	    	do {
+	          int a = numerosEntrada.nextInt();
+	          int b = numerosEntrada.nextInt();
+	          int n = numerosEntrada.nextInt();
+	          
+	          String q = "";
+	          int i = 0;
+	          int suma = a;
+	          while(i < n){
+	            suma += Math.pow(2, i) * b;
+	            if(i+1 < n){
+	                q = q + Integer.toString(suma) + " ";
+	            }
+	            else{
+	            	q = q + Integer.toString(suma);
+	            }
+	            i++;
+	          }
+	          System.out.print(q);
+	          num ++;
+	    	}while(num <= querys);
+	      
+	    	numerosEntrada.close();
+	    }// Cierre Main
+	}// Cierre Classe Class

@@ -1,0 +1,34 @@
+package hackerRankEjercicios;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class hackerrank_5_JavaMap {
+
+	public static void main(String [][]argh){
+		HashMap<String, Integer> libretaDeDirecciones = new HashMap<String, Integer>();
+	      
+		Scanner in = new Scanner(System.in);
+		int n=in.nextInt();
+		in.nextLine();
+		for(int i=0;i<n;i++)
+		{
+			String name=in.nextLine();
+			int phone=in.nextInt();
+			in.nextLine();
+		    libretaDeDirecciones.put(name, phone); // los objetos tienen solo 2 elementos Key name y elemento tel
+
+		}
+		while(in.hasNext())
+		{
+			String s=in.nextLine();
+			if(libretaDeDirecciones.containsKey(s)){	//	Validacion para saber si existe el key o no
+		        System.out.println(s + "=" + libretaDeDirecciones.get(s));
+		      }
+		      else {
+		        System.out.println("Not found");
+		      }
+		}
+		in.close();
+	}
+}

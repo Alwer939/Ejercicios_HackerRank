@@ -1,0 +1,30 @@
+public class Solution {
+
+  public static boolean isPar(int n){
+    if(n % 2 == 0){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(bufferedReader.readLine().trim());
+        if(isPar(N) == true){
+          if(N >= 6 && N <=20) {
+        	  System.out.println("Weird");  
+          }
+          else {
+        	  System.out.println("Not Weird");
+          }
+        }
+        else {
+        	System.out.println("Weird");
+        }
+        
+        bufferedReader.close();
+    }
+}
